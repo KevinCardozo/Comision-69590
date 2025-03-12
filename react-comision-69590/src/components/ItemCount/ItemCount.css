@@ -1,0 +1,11 @@
+.boton-content{
+    display: flex;
+    flex-direction: column;
+}
+.boton{
+    display: flex;
+    width: 10rem;
+    padding: 2rem;
+    justify-content: space-around;
+    align-items: center;
+}

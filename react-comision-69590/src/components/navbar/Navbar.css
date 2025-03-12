@@ -1,0 +1,17 @@
+.nav-bar{
+    display: flex;
+    height: 5rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: grey;
+    margin: 0;
+}
+.nav-bar-items{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+}
