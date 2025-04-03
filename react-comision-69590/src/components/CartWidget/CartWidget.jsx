@@ -1,11 +1,17 @@
 import './CartWidget.css';
+import { IoMdCart } from "react-icons/io";
 
 
 function CartWidget() {
 
   return (
-    <p>🛒1</p>
+    <div>
+      <IoMdCart />
+      <p>(3)</p>
+
+    </div>
     
+     
   )
 }
 

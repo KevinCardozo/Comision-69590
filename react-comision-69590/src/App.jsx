@@ -13,7 +13,7 @@ function App() {
   return (
     <>
     <Navbar />
-    <ItemListContainer greetings="Bienvenido a Zuge!"/>
+    <ItemListContainer/>
     </>
     
   )
