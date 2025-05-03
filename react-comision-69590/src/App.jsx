@@ -1,8 +1,11 @@
 import './App.css';
+import {BrowserRouter, Route, Routes} from 'react-router'
 import Navbar from './components/navbar/navbar';
 import Products from './components/products/Productos';
 import ItemCount from './components/ItemCount/ItemCount';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetail from './components/ItemDetail/ItemDetail';
+import { ContextProvider } from './context/context';
 
 //props: compartir del componente padre al componenet hijo
 ///spread opereator: desaparrame elementions de un objeto, los separa
@@ -11,10 +14,16 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 function App() {
 
   return (
-    <>
-    <Navbar />
-    <ItemListContainer/>
-    </>
+    <ContextProvider>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<ItemListContainer/>}/>
+        <Route path='/categoria/:categoria' element={<ItemListContainer/>}/>
+        <Route path='/detalle/:id' element={<ItemDetail/>}/>
+      </Routes>
+      </BrowserRouter>
+    </ContextProvider>
     
   )
 }

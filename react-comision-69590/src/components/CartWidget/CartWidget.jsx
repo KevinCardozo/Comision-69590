@@ -1,13 +1,16 @@
+import { useAppContext } from '../../context/context';
 import './CartWidget.css';
 import { IoMdCart } from "react-icons/io";
 
 
 function CartWidget() {
+  
+  const {numero, carrito}= useAppContext()
 
   return (
     <div>
       <IoMdCart />
-      <p>(3)</p>
+      <p>({carrito.length})</p>
 
     </div>
     

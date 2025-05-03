@@ -1,0 +1,38 @@
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: .1rem outset rgb(17, 17, 17);
+    &:hover{
+        transform: scale(1.02);
+        transition: transform 0.5s cubic-bezier(0,.9,.71,.95);
+    }
+}
+.img-item{
+    height: 400px;
+    width: 300px;
+    border: .1rem solid rgb(17, 17, 17);
+
+}
+.card h3{
+    font-size: 1.3rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+.card h2{
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: black;
+    
+}
+
+.card-body{
+    color: black;
+}
+
+
+
+
+
+

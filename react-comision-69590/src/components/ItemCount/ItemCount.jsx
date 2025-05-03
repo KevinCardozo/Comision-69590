@@ -6,8 +6,8 @@ import './ItemCount.css';
 ///spread opereator: desaparrame elementions de un objeto, los separa
 //Destructuracion: nos permite obtener valores y guardarlo en variables
 
-function ItemCount({stock, nombreDelProducto}) {
-    const [counter, setCounter]= useState(1)
+function ItemCount({stock, counter, setCounter}) {
+    
     
     function modificadorContador(operacion){
         if(operacion === "+"){
@@ -23,11 +23,6 @@ function ItemCount({stock, nombreDelProducto}) {
         }
     }
 
-    function agregarAlCarrito(){
-        console.log(`Vas a agregar ${counter} unidades de ${nombreDelProducto}`)
-
-    }
-
   return (
     <div className='boton-content'>
         <div className='boton'>
@@ -35,7 +30,6 @@ function ItemCount({stock, nombreDelProducto}) {
         <h3>{counter}</h3>
         <button className='btn btn-secondary' onClick={()=> modificadorContador("+")}>+</button>
     </div>
-    <button className='btn btn-primary' style={{width:" 12rem"}} onClick={()=> agregarAlCarrito()}>Agregar producto</button>
     </div>
   
   

@@ -4,30 +4,25 @@ import Item from '../Item/Item';
 import Loader from '../Loader/Loader';
 import { fetchData } from '../../fetchData';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { useParams } from 'react-router';
 
 function ItemListContainer() {
   const [loading, SetLoading]= useState(true)
   const [todosLosProductos, setTodosLosProductos] =useState(null)
-  const [productoFiltrado, setProductoFiltrado]= useState(null)
+  const {categoria}= useParams()
+ 
 
-
-
-
-
-  // useEffect(()=> {
-  //   setTimeout(()=>{
-  //     SetLoading(false)
-  //   }, 2500)
-  // }, [])
 
   useEffect(()=> {
+    if (!todosLosProductos){
     fetchData(false)
     .then(response => {
       setTodosLosProductos(response)
       SetLoading(false)
-  })
+  },500)
     .catch(err=> console.error(err))
-  }, [])
+}
+  }, [categoria])
 
 
   return (
@@ -36,15 +31,18 @@ function ItemListContainer() {
         loading ? 
         <Loader/>
         :
+        categoria ? 
+        todosLosProductos.filter(el=> el.categoria===categoria).map(el => {
+          return(
+            <Item key={el.id} producto={el}/>
+          )
+        }) :
         todosLosProductos.map(el => {
           return(
-            <Item key={el.id} producto={el} filtrarProducto={setProductoFiltrado}/>
+            <Item key={el.id} producto={el}/>
           )
-        })
-      }{
-        productoFiltrado &&
-        <ItemDetail producto={productoFiltrado} volverAlInicio={()=> setProductoFiltrado(null)} />
-        
+        }) 
+
       }
     </div>
     
