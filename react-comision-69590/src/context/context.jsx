@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { toast, ToastContainer } from 'react-toastify';
 
 const AppContext = createContext();
 
@@ -33,18 +34,28 @@ export const ContextProvider = (props) =>{
             
            })
            setCarrito(newCarrito)
+           toast.success('¡Producto agregado al carrito!', {
+            position: 'top-right',
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: 'dark',
+          });
 
         }else{
             setCarrito([...carrito, nuevoProducto])
-
-        }
-     
-        setTimeout(()=>{
-            console.log(carrito)
-        },2000)
-        
-
-        
+            toast.success('¡Producto agregado al carrito!', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: 'dark',
+              });
+        }  
       }
 
     return(

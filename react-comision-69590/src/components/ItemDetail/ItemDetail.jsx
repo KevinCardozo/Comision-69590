@@ -5,6 +5,8 @@ import { Link, useParams } from 'react-router';
 import { fetchData } from '../../fetchData';
 import Loader from '../Loader/Loader';
 import { useAppContext } from '../../context/context';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
 
 function ItemDetail() {
   const [loading, SetLoading]= useState(true)
@@ -12,33 +14,20 @@ function ItemDetail() {
   const [counter, setCounter]= useState(1)
   const [producto, setProducto]= useState(null)
 
-  const {agregarAlCarrito}= useAppContext()
-  
+   const productosCollection= collection(db, "productos")
 
-    // function agregarAlCarrito(prod){
-    //   const nuevoProducto= {
-    //     ...prod,
-    //     cantidad: counter
-    //   }
-    //   console.log("agregaste", nuevoProducto)
-    //   setCounter(1)
-    // }
+  const {agregarAlCarrito}= useAppContext()
 
     useEffect(()=> {
-      fetchData()
-    .then(response => {
-      const productoAMostrar= response.find(el =>el.id=== parseInt(id))
-      setProducto(productoAMostrar)
-      setTimeout(()=>{
-        SetLoading(false)
-      }, 500)
-    
-
-      // setTodosLosProductos(response)
-      // SetLoading(false)
-  })
-    .catch(err=> console.error(err))
-  }, [])
+      getDocs(productosCollection).then(snapshot=>{
+        let productoAMostrar= snapshot.docs.map(el => el.data()) //traer los productos
+        .find(el=> el.id === parseInt(id))
+        setProducto(productoAMostrar)
+        setTimeout(()=>{
+              SetLoading(false)
+              }, 800)
+  
+      }).catch(err=>console.error(err))},[])
 
   return (
      <div className='card p-3 m-2' >

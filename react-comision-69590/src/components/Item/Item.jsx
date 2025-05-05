@@ -6,9 +6,6 @@ import { useAppContext } from '../../context/context';
 
 function Item({producto, filtrarProducto}) {
     const {id, nombre, precio}= producto
-
-    const [carrito, setCarrito]= useState([])
-
     const {agregarAlCarrito}= useAppContext()
 
  

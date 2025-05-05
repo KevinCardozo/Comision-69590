@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import CartWidget from '../CartWidget/CartWidget';
 import './navbar.css';
 
+
 function navbar() {
 
   const carrito = [1,2,3,4,5]
@@ -21,9 +22,10 @@ function navbar() {
               <li>Buzos</li>
               </Link>
             </ul>
-            <Link to="/carrito">
-              <CartWidget/>
+            <Link to="/detalleCarrito">
+            <CartWidget/>
             </Link>
+            
             
         </nav>
     </header>

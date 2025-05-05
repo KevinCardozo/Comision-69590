@@ -6,6 +6,9 @@ import ItemCount from './components/ItemCount/ItemCount';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import { ContextProvider } from './context/context';
+import CartDetail from './CartDetail/CartDetail';
+import FormBuy from './FormBuy/FormBuy';
+import { ToastContainer } from 'react-toastify';
 
 //props: compartir del componente padre al componenet hijo
 ///spread opereator: desaparrame elementions de un objeto, los separa
@@ -14,15 +17,19 @@ import { ContextProvider } from './context/context';
 function App() {
 
   return (
+
     <ContextProvider>
     <BrowserRouter>
-      <Navbar />
+      <Navbar/>
       <Routes>
         <Route path='/' element={<ItemListContainer/>}/>
         <Route path='/categoria/:categoria' element={<ItemListContainer/>}/>
         <Route path='/detalle/:id' element={<ItemDetail/>}/>
+        <Route path= '/detalleCarrito' element={<CartDetail/>}/>
+        <Route path= '/formularioDeCompra' element={<FormBuy/>}/>
       </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </ContextProvider>
     
   )

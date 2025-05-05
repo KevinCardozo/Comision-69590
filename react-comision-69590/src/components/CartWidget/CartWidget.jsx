@@ -5,12 +5,12 @@ import { IoMdCart } from "react-icons/io";
 
 function CartWidget() {
   
-  const {numero, carrito}= useAppContext()
+  const {carrito}= useAppContext()
 
   return (
     <div>
       <IoMdCart />
-      <p>({carrito.length})</p>
+      <p>({carrito.reduce((acc,el)=> acc+el.cantidad,0)})</p>
 
     </div>
     

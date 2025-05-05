@@ -1,0 +1,29 @@
+.carrito div {
+    color: black;
+
+}
+.carrito{
+    color: black
+}
+
+#detalleCart img{
+    height: 300px;
+    
+}
+#detalleCart{
+    width: 300px;
+   
+}
+
+#contenedorCart{
+    display: flex;
+    justify-content: center;
+    align-items:normal;
+    flex-direction:column;
+    margin: 50px;
+    
+    margin-top: 20px;
+    border: solid black 2px;
+
+    
+}
